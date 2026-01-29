@@ -31,11 +31,14 @@ GROUP BY pickup_day
 ORDER BY max_distance DESC
 LIMIT 1
 
+2025-11-14
+
+
 ## Question 5
 SELECT
     z.Zone,
     SUM(t.total_amount) AS total_amount_sum
-FROM green_taxi_2025_11 t
+FROM green_taxi_trips_2025_11 t
 JOIN taxi_zone_lookup z
     ON t.PULocationID = z.LocationID
 WHERE DATE(t.lpep_pickup_datetime) = '2025-11-18'
@@ -47,7 +50,7 @@ LIMIT 1;
 SELECT
     z_do.Zone,
     SUM(t.tip_amount) AS total_tip
-FROM green_taxi_2025_11 t
+FROM green_taxi_trips_2025_11 t
 JOIN taxi_zone_lookup z_pu
     ON t.PULocationID = z_pu.LocationID
 JOIN taxi_zone_lookup z_do
